@@ -7,7 +7,7 @@
   Project plant_client_light
   Created by Matt on 24/12/2014
   Copyright © 2014 Matthieu Holtz
-  License <#license#>
+  License license
 
 
 
