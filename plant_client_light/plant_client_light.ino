@@ -16,6 +16,12 @@
 // See			ReadMe.txt for references
 //
 
+#include <Arduino.h>
+#include <dht11.h>
+#include <Wire.h>
+#include <TSL2561.h>
+
+
 // Core library for code-sense
 #if defined(WIRING) // Wiring specific
 #include "Wiring.h"

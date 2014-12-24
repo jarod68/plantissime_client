@@ -9,4 +9,8 @@ Builds/main.o: main.cpp \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduino/Printable.h \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduino/new.h \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/variants/standard/pins_arduino.h \
-  plant_client_light.ino
+  plant_client_light.ino \
+  /Users/Matt/Arduino/Sketchbook/Libraries/dht11/dht11.h \
+  /Applications/Arduino.app/Contents/Resources/Java/libraries/Wire/Wire.h \
+  /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduino/Stream.h \
+  /Users/Matt/Arduino/Sketchbook/Libraries/TSL2561/TSL2561.h
