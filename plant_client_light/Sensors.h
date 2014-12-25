@@ -6,8 +6,8 @@
 
 #pragma once
 
-#ifndef MONITORINGSTATE_H
-#define MONITORINGSTATE_H
+#ifndef SENSORS_H
+#define SENSORS_H
 
 #include <Arduino.h>
 
@@ -44,4 +44,4 @@ public:
 };
 
 
-#endif
+#endif //SENSORS_H
