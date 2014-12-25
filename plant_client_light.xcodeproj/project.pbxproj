@@ -246,6 +246,7 @@
 		C962BFAF1A4AF09800C331FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C962BFAE1A4AF09800C331FB /* main.cpp */; };
 		C962BFB11A4AF09800C331FB /* LocalLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C962BFB01A4AF09800C331FB /* LocalLibrary.cpp */; };
 		C978E3951A4AFE67000D4CE1 /* Sensors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C978E3941A4AFE67000D4CE1 /* Sensors.cpp */; };
+		C9D2C98F1A4C578100875D4B /* XBeeLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9D2C98E1A4C578100875D4B /* XBeeLink.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -562,6 +563,8 @@
 		C962C0021A4AF09800C331FB /* plant_client_light.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = plant_client_light.ino; sourceTree = "<group>"; };
 		C978E3931A4AFE5A000D4CE1 /* Sensors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sensors.h; sourceTree = "<group>"; };
 		C978E3941A4AFE67000D4CE1 /* Sensors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensors.cpp; sourceTree = "<group>"; };
+		C9D2C98D1A4C577500875D4B /* XBeeLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBeeLink.h; sourceTree = "<group>"; };
+		C9D2C98E1A4C578100875D4B /* XBeeLink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XBeeLink.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -993,6 +996,8 @@
 				C962BFFA1A4AF09800C331FB /* Utilities */,
 				C978E3931A4AFE5A000D4CE1 /* Sensors.h */,
 				C978E3941A4AFE67000D4CE1 /* Sensors.cpp */,
+				C9D2C98D1A4C577500875D4B /* XBeeLink.h */,
+				C9D2C98E1A4C578100875D4B /* XBeeLink.cpp */,
 			);
 			path = plant_client_light;
 			sourceTree = "<group>";
@@ -1422,6 +1427,7 @@
 				AA2A141224140219AA0000C8 /* Fat16Config.h in Sources */,
 				AA2A141224140219AA0000C9 /* Fat16mainpage.h in Sources */,
 				AA2A141224140219AA0000CA /* Fat16util.h in Sources */,
+				C9D2C98F1A4C578100875D4B /* XBeeLink.cpp in Sources */,
 				AA2A141224140219AA0000CB /* FatStructs.h in Sources */,
 				AA2A141224140219AA0000CC /* glcdfont.c in Sources */,
 				AA2A141224140219AA0000CD /* helper.cpp in Sources */,

@@ -34,8 +34,9 @@
 /* Project classes */
 
 #include "Sensors.h"
+#include "XBeeLink.h"
 
-
+XBeeLink * xbee = NULL;
 Sensors * sensors = NULL;
 
 const uint16_t PIN_SOIL_0 = A0;
@@ -51,50 +52,6 @@ const uint16_t XBEE_SLEEP = 7;
 
 
 volatile uint16_t sleepSecondElapsed = 0;
-
-void printLine         (const String& line)
-{
-    Serial.print(line);
-    Serial.print('\r');
-}
-
-
-String readSerial   ()
-{
-    String str = "";
-    
-    while (true) {
-        
-        if(!Serial.available())
-            continue;
-        
-        char inChar = (char)Serial.read();
-        
-        if (inChar == '\r')
-            return str;
-        
-        else if (inChar != '\n')
-            str += inChar;
-    }
-}
-
-int atCommand()
-{
-    
-    Serial.print("+++");
-    delay(1000);
-    readSerial();
-    
-    printLine("AT");
-    delay(1000);
-    String toReturn = readSerial();
-    
-    printLine("ATSM1");
-    delay(1000);
-    readSerial();
-    delay(4000);
-
-}
 
 
 ISR( WDT_vect ) {
@@ -132,10 +89,10 @@ void setup()
     
     
     digitalWrite(XBEE_SLEEP, LOW);   // deassert to keep radio awake when sleep mode selected
-   
-    atCommand();
     
+    xbee = new XBeeLink();
     sensors = new Sensors(PIN_SOIL_0, PIN_SOIL_1, PIN_SOIL_2, PIN_SOIL_3, PIN_DHT11);
+    xbee->configureSleepOnD7();
     
     setupSleep();
 }

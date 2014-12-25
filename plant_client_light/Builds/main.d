@@ -14,4 +14,5 @@ Builds/main.o: main.cpp \
   /Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/cores/arduino/Stream.h \
   /Users/Matt/Arduino/Sketchbook/Libraries/dht11/dht11.h \
   /Users/Matt/Arduino/Sketchbook/Libraries/TSL2561/TSL2561.h \
-  /Users/Matt/Arduino/Sketchbook/Libraries/XBee/XBee.h Sensors.h
+  /Users/Matt/Arduino/Sketchbook/Libraries/XBee/XBee.h Sensors.h \
+  XBeeLink.h
