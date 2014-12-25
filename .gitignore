@@ -1,6 +1,8 @@
 # Build files
 *.d
-
+plant_client_light/Builds/
+plant_client_light/Makefiles/
+plant_client_light/Configurations/
 # Object files
 *.o
 *.ko
