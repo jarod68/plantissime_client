@@ -29,7 +29,6 @@
 
 #include <dht11.h>
 #include <TSL2561.h>
-#include <XBee.h>
 
 /* Project classes */
 
