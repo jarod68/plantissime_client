@@ -6,13 +6,15 @@ Sensors :: Sensors      (const uint16_t pinSoil_0,
                          const uint16_t pinSoil_1,
                          const uint16_t pinSoil_2,
                          const uint16_t pinSoil_3,
-                         const uint16_t pinDHT11
+                         const uint16_t pinDHT11,
+                         const String nodeIdentifier
                         ):
                         _pinSoil_0(pinSoil_0),
                         _pinSoil_1(pinSoil_1),
                         _pinSoil_2(pinSoil_2),
                         _pinSoil_3(pinSoil_3),
                         _pinDHT11(pinDHT11),
+                        _nodeIdentifier(nodeIdentifier),
                         _tsl(new TSL2561(TSL2561_ADDR_FLOAT)),
                         _dht11(new dht11)
 {
@@ -87,6 +89,7 @@ String Sensors::capture              ()
     dtostrf(soil3, 3, 1, stringSoil3);
     
     String	json = String("{\"cid\":");
+    json.concat(_nodeIdentifier);
     json.concat(",\"lum\":");
     json.concat(stringLuminosity);
     json.concat(",\"hum\":");
