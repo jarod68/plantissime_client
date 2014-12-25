@@ -53,6 +53,17 @@ const uint16_t XBEE_SLEEP = 7;
 
 volatile uint16_t sleepSecondElapsed = 0;
 
+void ledOn ()
+{
+    digitalWrite(PIN_LED, HIGH);
+}
+
+void ledOff ()
+{
+    digitalWrite(PIN_LED, LOW);
+}
+
+// Timers interrupt routine
 
 ISR( WDT_vect ) {
     
@@ -80,6 +91,7 @@ void deepSleep()
 
 void setup()
 {
+    ledOn();
     Serial.begin(9600);
     
     pinMode(PIN_DHT11, INPUT);
@@ -95,6 +107,7 @@ void setup()
     xbee->configureSleepOnD7();
     
     setupSleep();
+    ledOff();
 }
 
 
@@ -104,10 +117,12 @@ void loop()
     deepSleep();
 
     if(sleepSecondElapsed>10){
+        ledOn();
         digitalWrite(XBEE_SLEEP, LOW);
         Serial.print(sensors->capture());
         digitalWrite(XBEE_SLEEP, HIGH);
         sleepSecondElapsed=0;
         delay(1000);
+        ledOff();
     }
 }
