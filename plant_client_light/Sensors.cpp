@@ -1,3 +1,7 @@
+/* ---------------------------------------------------------------------------
+ ** Author: Matthieu Holtz
+ ** Year:   2015
+ ** -------------------------------------------------------------------------*/
 
 #include "Sensors.h"
 
@@ -24,7 +28,7 @@ Sensors :: Sensors      (const uint16_t pinSoil_0,
     
     _tsl->setGain(TSL2561_GAIN_16X);     // set 16x gain (for dim situations)
     
-    _tsl->setTiming(TSL2561_INTEGRATIONTIME_13MS);
+    _tsl->setTiming(TSL2561_INTEGRATIONTIME_101MS);
 }
 
 Sensors :: ~Sensors()
@@ -37,7 +41,7 @@ int Sensors::readSoil    (const uint16_t analogPin)
 {
     int value = analogRead(analogPin);
     
-    if (value >= 1000)
+    if (value >= 900)
         return -1;
     
     return value;
@@ -46,7 +50,14 @@ int Sensors::readSoil    (const uint16_t analogPin)
 
 float       Sensors::readTSL     ()
 {
-    return _tsl->getLuminosity(TSL2561_VISIBLE);
+    //return _tsl->getLuminosity(TSL2561_VISIBLE);
+    
+    uint32_t lum = _tsl->getFullLuminosity();
+    uint16_t ir, full;
+    ir = lum >> 16;
+    full = lum & 0xFFFF;
+    
+    return _tsl->calculateLux(full, ir);
 }
 
 bool        Sensors::readDHT11   (int16_t * humidity, int16_t * temperature)

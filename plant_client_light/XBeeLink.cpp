@@ -1,3 +1,7 @@
+/* ---------------------------------------------------------------------------
+ ** Author: Matthieu Holtz
+ ** Year:   2015
+ ** -------------------------------------------------------------------------*/
 
 #include "XBeeLink.h"
 
@@ -18,11 +22,11 @@ void XBeeLink :: readNodeIdentifier ()
     delay(1000);
     readSerial();
     
-    printLine("AT");
+    printLineCR("AT");
     delay(1000);
     readSerial();
     
-    printLine("ATNI");
+    printLineCR("ATNI");
     delay(1000);
     _xBeeIdentifier = readSerial();
     delay(4000);
@@ -35,12 +39,17 @@ String  XBeeLink :: getXBeeIdentifier       ()
     return _xBeeIdentifier;
 }
 
-void XBeeLink :: printLine         (const String& line)
+void XBeeLink :: printLineCR         (const String& line)
 {
     Serial.print(line);
     Serial.print('\r');
 }
 
+void XBeeLink :: printLineLF         (const String& line)
+{
+    Serial.print(line);
+    Serial.print('\n');
+}
 
 String XBeeLink :: readSerial   ()
 {
@@ -68,11 +77,11 @@ void XBeeLink :: configureSleepOnD7()
     delay(1000);
     readSerial();
     
-    printLine("AT");
+    printLineCR("AT");
     delay(1000);
     readSerial();
     
-    printLine("ATSM1");
+    printLineCR("ATSM1");
     delay(1000);
     readSerial();
     delay(4000);

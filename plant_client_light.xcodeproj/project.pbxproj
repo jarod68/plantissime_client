@@ -552,8 +552,6 @@
 		C962BFF41A4AF09800C331FB /* Teensy2.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; name = Teensy2.mk; path = Makefiles/Teensy2.mk; sourceTree = "<group>"; };
 		C962BFF51A4AF09800C331FB /* Teensy3.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; name = Teensy3.mk; path = Makefiles/Teensy3.mk; sourceTree = "<group>"; };
 		C962BFF61A4AF09800C331FB /* Avrdude.mk */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; name = Avrdude.mk; path = Makefiles/Avrdude.mk; sourceTree = "<group>"; };
-		C962BFF71A4AF09800C331FB /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		C962BFF91A4AF09800C331FB /* About.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = About.txt; path = About/About.txt; sourceTree = "<group>"; };
 		C962BFFB1A4AF09800C331FB /* reset.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = reset.py; path = Utilities/reset.py; sourceTree = "<group>"; };
 		C962BFFC1A4AF09800C331FB /* serial1200.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = serial1200.py; path = Utilities/serial1200.py; sourceTree = "<group>"; };
 		C962BFFE1A4AF09800C331FB /* embedXcode_check */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = embedXcode_check; path = Utilities/embedXcode_check; sourceTree = "<group>"; };
@@ -986,13 +984,11 @@
 				C962BFB01A4AF09800C331FB /* LocalLibrary.cpp */,
 				C962BFB21A4AF09800C331FB /* LocalLibrary.h */,
 				C962BFB31A4AF09800C331FB /* Makefile */,
-				C962BFF71A4AF09800C331FB /* ReadMe.txt */,
 				C962C0021A4AF09800C331FB /* plant_client_light.ino */,
 				C962BFB51A4AF09800C331FB /* Sketchbook */,
 				AAAA141224140219AA000000 /* Resources */,
 				C962BFB71A4AF09800C331FB /* Configurations */,
 				C962BFE21A4AF09800C331FB /* Makefiles */,
-				C962BFF81A4AF09800C331FB /* About */,
 				C962BFFA1A4AF09800C331FB /* Utilities */,
 				C978E3931A4AFE5A000D4CE1 /* Sensors.h */,
 				C978E3941A4AFE67000D4CE1 /* Sensors.cpp */,
@@ -1084,14 +1080,6 @@
 				C962BFF61A4AF09800C331FB /* Avrdude.mk */,
 			);
 			name = Makefiles;
-			sourceTree = "<group>";
-		};
-		C962BFF81A4AF09800C331FB /* About */ = {
-			isa = PBXGroup;
-			children = (
-				C962BFF91A4AF09800C331FB /* About.txt */,
-			);
-			name = About;
 			sourceTree = "<group>";
 		};
 		C962BFFA1A4AF09800C331FB /* Utilities */ = {

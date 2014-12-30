@@ -1,4 +1,9 @@
-// 
+/* ---------------------------------------------------------------------------
+ ** Author: Matthieu Holtz
+ ** Year:   2015
+ ** -------------------------------------------------------------------------*/
+
+//
 // plant_client_light 
 //
 // Description of the project
@@ -118,7 +123,7 @@ void loop()
     if(sleepSecondElapsed>10){
         ledOn();
         digitalWrite(XBEE_SLEEP, LOW);
-        Serial.print(sensors->capture());
+        xbee->printLineLF(sensors->capture());
         digitalWrite(XBEE_SLEEP, HIGH);
         sleepSecondElapsed=0;
         delay(1000);

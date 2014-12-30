@@ -1,7 +1,6 @@
-
 /* ---------------------------------------------------------------------------
  ** Author: Matthieu Holtz
- ** Year:   2014
+ ** Year:   2015
  ** -------------------------------------------------------------------------*/
 
 #pragma once
@@ -26,7 +25,8 @@ public:
     virtual         ~XBeeLink               ();
     
     virtual String  getXBeeIdentifier       ();
-    virtual void    printLine               (const String& line);
+    virtual void    printLineCR             (const String& line);
+    virtual void    printLineLF             (const String& line);
     virtual String  readSerial              ();
     virtual void    configureSleepOnD7      ();
 };
