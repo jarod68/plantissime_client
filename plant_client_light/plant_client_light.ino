@@ -69,8 +69,8 @@ void ledOff ()
 
 // Timers interrupt routine
 
-ISR( WDT_vect ) {
-    
+ISR( WDT_vect )
+{
     sleepSecondElapsed+=7;
 }
 
@@ -81,7 +81,6 @@ void setupSleep ()
     WDTCSR |= (1 << WDCE) | (1 << WDE);              // enable configuration changes
     WDTCSR = (1<< WDP0) | (1 << WDP1) | (1 << WDP2); // set the prescalar = 7
     WDTCSR |= (1 << WDIE);                           // enable interrupt mode
-
 }
 
 void deepSleep()
@@ -117,7 +116,6 @@ void setup()
 
 void loop()
 {
-
     deepSleep();
 
     if(sleepSecondElapsed>10){

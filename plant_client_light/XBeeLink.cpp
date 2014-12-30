@@ -72,7 +72,6 @@ String XBeeLink :: readSerial   ()
 
 void XBeeLink :: configureSleepOnD7()
 {
-    
     Serial.print("+++");
     delay(1000);
     readSerial();
@@ -85,5 +84,4 @@ void XBeeLink :: configureSleepOnD7()
     delay(1000);
     readSerial();
     delay(4000);
-    
 }
