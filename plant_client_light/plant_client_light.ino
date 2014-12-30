@@ -40,20 +40,18 @@
 #include "Sensors.h"
 #include "XBeeLink.h"
 
-XBeeLink * xbee = NULL;
-Sensors * sensors = NULL;
+XBeeLink    * xbee          = NULL;
+Sensors     * sensors       = NULL;
 
-const uint16_t PIN_SOIL_0 = A0;
-const uint16_t PIN_SOIL_1 = A1;
-const uint16_t PIN_SOIL_2 = A6;
-const uint16_t PIN_SOIL_3 = A7;
+const uint16_t PIN_SOIL_0   = A0;
+const uint16_t PIN_SOIL_1   = A1;
+const uint16_t PIN_SOIL_2   = A6;
+const uint16_t PIN_SOIL_3   = A7;
 
-const uint16_t PIN_DHT11 = 12;
-const uint16_t PIN_LED = 9;
-const uint16_t PIN_BUTTON = 8;
-
-const uint16_t XBEE_SLEEP = 7;
-
+const uint16_t PIN_DHT11    = 12;
+const uint16_t PIN_LED      = 9;
+const uint16_t PIN_BUTTON   = 8;
+const uint16_t XBEE_SLEEP   = 7;
 
 volatile uint16_t sleepSecondElapsed = 0;
 

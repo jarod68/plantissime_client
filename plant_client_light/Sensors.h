@@ -22,8 +22,8 @@ private:
     const uint16_t _pinSoil_3;
     const uint16_t _pinDHT11 ;
     const String   _nodeIdentifier;
-    TSL2561 *          _tsl;
-    dht11   *          _dht11;
+    TSL2561 *      _tsl;
+    dht11   *      _dht11;
     
 protected:
     static  int         readSoil    (const uint16_t analogPin);
@@ -31,12 +31,13 @@ protected:
     virtual bool        readDHT11   (int16_t * humidity, int16_t * temperature);
     
 public:
-    Sensors               (const uint16_t pinSoil_0,
+    Sensors              (const uint16_t pinSoil_0,
                           const uint16_t pinSoil_1,
                           const uint16_t pinSoil_2,
                           const uint16_t pinSoil_3,
                           const uint16_t pinDHT11,
-                          const String  nodeIdentifier          );
+                          const String  nodeIdentifier
+                         );
     
     virtual         ~Sensors    ();
     

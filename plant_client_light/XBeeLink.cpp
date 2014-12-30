@@ -58,7 +58,7 @@ void XBeeLink :: printLineLF         (const String& line)
     Serial.print('\n');
 }
 
-String XBeeLink :: readSerial   ()
+String XBeeLink :: readSerial       ()
 {
     String str = "";
     
@@ -77,7 +77,7 @@ String XBeeLink :: readSerial   ()
     }
 }
 
-void XBeeLink :: configureSleepOnD7()
+void XBeeLink :: configureSleepOnD7 ()
 {
     Serial.print("+++");
     delay(XBEE_TIME_AFTER_CMD_MS);
