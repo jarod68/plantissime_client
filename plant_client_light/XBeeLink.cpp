@@ -5,6 +5,11 @@
 
 #include "XBeeLink.h"
 
+#define __ASSERT_USE_STDERR
+
+#include <assert.h>
+
+#define XBEE_TIME_AFTER_CMD_MS 1000
 
 XBeeLink :: XBeeLink        () 
 {
@@ -19,18 +24,20 @@ XBeeLink :: ~XBeeLink       ()
 void XBeeLink :: readNodeIdentifier ()
 {
     Serial.print("+++");
-    delay(1000);
-    readSerial();
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
     
     printLineCR("AT");
-    delay(1000);
-    readSerial();
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
     
     printLineCR("ATNI");
-    delay(1000);
+    delay(XBEE_TIME_AFTER_CMD_MS);
     _xBeeIdentifier = readSerial();
-    delay(4000);
     
+    printLineCR("ATCN");
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
 }
 
 
@@ -73,15 +80,18 @@ String XBeeLink :: readSerial   ()
 void XBeeLink :: configureSleepOnD7()
 {
     Serial.print("+++");
-    delay(1000);
-    readSerial();
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
     
     printLineCR("AT");
-    delay(1000);
-    readSerial();
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
     
     printLineCR("ATSM1");
-    delay(1000);
-    readSerial();
-    delay(4000);
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
+    
+    printLineCR("ATCN");
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    assert(readSerial() == "OK");
 }
