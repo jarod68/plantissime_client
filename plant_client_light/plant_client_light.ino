@@ -40,6 +40,8 @@
 #include "Sensors.h"
 #include "XBeeLink.h"
 
+#define SENDING_PERIOD_S 60
+
 XBeeLink    * xbee          = NULL;
 Sensors     * sensors       = NULL;
 
@@ -63,6 +65,15 @@ void ledOn ()
 void ledOff ()
 {
     digitalWrite(PIN_LED, LOW);
+}
+
+void ledOffAndBlink ()
+{
+    ledOff();
+    delay(250);
+    ledOn();
+    delay(250);
+    ledOff();
 }
 
 // Timers interrupt routine
@@ -111,18 +122,18 @@ void setup()
     ledOff();
 }
 
-
 void loop()
 {
     deepSleep();
 
-    if(sleepSecondElapsed>10){
+    if(sleepSecondElapsed>SENDING_PERIOD_S){
         ledOn();
         digitalWrite(XBEE_SLEEP, LOW);
         xbee->printLineLF(sensors->capture());
         digitalWrite(XBEE_SLEEP, HIGH);
-        sleepSecondElapsed=0;
+        sleepSecondElapsed=0;   // In case of interupt routine is called during LED ON
         delay(1000);
-        ledOff();
+        ledOffAndBlink();
+        sleepSecondElapsed=1;   // Due to LED 1 second ON
     }
 }
