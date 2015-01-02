@@ -37,7 +37,7 @@ Sensors :: ~Sensors()
     delete _dht11;
 }
 
-int Sensors::readSoil    (const uint16_t analogPin)
+uint16_t Sensors::readSoil    (const uint16_t analogPin)
 {
     int value = analogRead(analogPin);
     
@@ -46,6 +46,11 @@ int Sensors::readSoil    (const uint16_t analogPin)
     
     return value;
     
+}
+
+uint16_t Sensors::readPowerSupply    ()
+{
+    return 100;
 }
 
 float       Sensors::readTSL     ()
@@ -99,6 +104,8 @@ String Sensors::capture              ()
     char stringSoil3[16];
     dtostrf(soil3, 3, 1, stringSoil3);
     
+    int16_t powerSupply = readPowerSupply();
+
     String	json = String("{\"cid\":");
     json.concat(_nodeIdentifier);
     json.concat(",\"lum\":");
@@ -115,6 +122,8 @@ String Sensors::capture              ()
     json.concat(stringSoil2);
     json.concat(",\"s3\":");
     json.concat(stringSoil3);
+    json.concat(",\"power\":");
+    json.concat(powerSupply);
     json.concat("}");
     
     return json;

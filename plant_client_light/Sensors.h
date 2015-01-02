@@ -26,9 +26,10 @@ private:
     dht11   *      _dht11;
     
 protected:
-    static  int         readSoil    (const uint16_t analogPin);
-    virtual float       readTSL     ();
-    virtual bool        readDHT11   (int16_t * humidity, int16_t * temperature);
+    static  uint16_t    readSoil            (const uint16_t analogPin);
+    virtual float       readTSL             ();
+    virtual uint16_t    readPowerSupply     ();
+    virtual bool        readDHT11           (int16_t * humidity, int16_t * temperature);
     
 public:
     Sensors              (const uint16_t pinSoil_0,
