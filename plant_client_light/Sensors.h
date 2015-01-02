@@ -22,6 +22,7 @@ private:
     const uint16_t _pinSoil_3;
     const uint16_t _pinDHT11 ;
     const String   _nodeIdentifier;
+    const String   _serialNumber;
     TSL2561 *      _tsl;
     dht11   *      _dht11;
     
@@ -37,7 +38,8 @@ public:
                           const uint16_t pinSoil_2,
                           const uint16_t pinSoil_3,
                           const uint16_t pinDHT11,
-                          const String  nodeIdentifier
+                          const String   nodeIdentifier,
+                          const String   serialNumber
                          );
     
     virtual         ~Sensors    ();

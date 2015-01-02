@@ -115,7 +115,15 @@ void setup()
     digitalWrite(XBEE_SLEEP, LOW);   // deassert to keep radio awake when sleep mode selected
     
     xbee = new XBeeLink();
-    sensors = new Sensors(PIN_SOIL_0, PIN_SOIL_1, PIN_SOIL_2, PIN_SOIL_3, PIN_DHT11, xbee->getXBeeIdentifier());
+    sensors = new Sensors(PIN_SOIL_0,
+                          PIN_SOIL_1,
+                          PIN_SOIL_2,
+                          PIN_SOIL_3,
+                          PIN_DHT11,
+                          xbee->getXBeeNodeIdentifier(),
+                          xbee->getXBeeSerialNumber()
+                          );
+    
     xbee->configureSleepOnD7();
     
     setupSleep();

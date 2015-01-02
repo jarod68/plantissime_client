@@ -13,7 +13,7 @@
 
 XBeeLink :: XBeeLink        () 
 {
-    this->readNodeIdentifier();
+    this->readXbeeNodeIdentifierAndSerial();
 }
 
 XBeeLink :: ~XBeeLink       ()
@@ -21,7 +21,7 @@ XBeeLink :: ~XBeeLink       ()
 
 }
 
-void XBeeLink :: readNodeIdentifier ()
+void XBeeLink :: readXbeeNodeIdentifierAndSerial ()
 {
     Serial.print("+++");
     delay(XBEE_TIME_AFTER_CMD_MS);
@@ -33,17 +33,29 @@ void XBeeLink :: readNodeIdentifier ()
     
     printLineCR("ATNI");
     delay(XBEE_TIME_AFTER_CMD_MS);
-    _xBeeIdentifier = readSerial();
+    _xBeeNodeIdentifier = readSerial();
+    
+    printLineCR("ATSH");
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    _xBeeSerialNumber = readSerial();
+    
+    printLineCR("ATSL");
+    delay(XBEE_TIME_AFTER_CMD_MS);
+    _xBeeSerialNumber += readSerial();
     
     printLineCR("ATCN");
     delay(XBEE_TIME_AFTER_CMD_MS);
     assert(readSerial() == "OK");
 }
 
-
-String  XBeeLink :: getXBeeIdentifier       ()
+String  XBeeLink :: getXBeeNodeIdentifier       ()
 {
-    return _xBeeIdentifier;
+    return _xBeeNodeIdentifier;
+}
+
+String  XBeeLink :: getXBeeSerialNumber       ()
+{
+    return _xBeeSerialNumber;
 }
 
 void XBeeLink :: printLineCR         (const String& line)

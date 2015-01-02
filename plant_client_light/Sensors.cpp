@@ -11,7 +11,8 @@ Sensors :: Sensors      (const uint16_t pinSoil_0,
                          const uint16_t pinSoil_2,
                          const uint16_t pinSoil_3,
                          const uint16_t pinDHT11,
-                         const String nodeIdentifier
+                         const String nodeIdentifier,
+                         const String serialNumber
                         ):
                         _pinSoil_0(pinSoil_0),
                         _pinSoil_1(pinSoil_1),
@@ -19,6 +20,7 @@ Sensors :: Sensors      (const uint16_t pinSoil_0,
                         _pinSoil_3(pinSoil_3),
                         _pinDHT11(pinDHT11),
                         _nodeIdentifier(nodeIdentifier),
+                        _serialNumber(serialNumber),
                         _tsl(new TSL2561(TSL2561_ADDR_FLOAT)),
                         _dht11(new dht11)
 {
@@ -128,8 +130,10 @@ String Sensors::capture              ()
     
     long powerSupply = readPowerSupply();
 
-    String	json = String("{\"cid\":");
+    String	json = String("{\"nodeID\":");
     json.concat(_nodeIdentifier);
+    json.concat(",\"serial\":");
+    json.concat(_serialNumber);
     json.concat(",\"lum\":");
     json.concat(stringLuminosity);
     json.concat(",\"hum\":");

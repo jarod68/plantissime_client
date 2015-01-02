@@ -14,17 +14,19 @@
 class XBeeLink {
     
 private:
-    String _xBeeIdentifier;
+    String _xBeeNodeIdentifier;
+    String _xBeeSerialNumber;
     
 private:
-    void  readNodeIdentifier                ();
+    void  readXbeeNodeIdentifierAndSerial   ();
     
 public:
     XBeeLink                                ();
     
     virtual         ~XBeeLink               ();
     
-    virtual String  getXBeeIdentifier       ();
+    virtual String  getXBeeNodeIdentifier   ();
+    virtual String  getXBeeSerialNumber     ();
     virtual void    printLineCR             (const String& line);
     virtual void    printLineLF             (const String& line);
     virtual String  readSerial              ();
