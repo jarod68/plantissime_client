@@ -28,7 +28,7 @@ private:
 protected:
     static  uint16_t    readSoil            (const uint16_t analogPin);
     virtual float       readTSL             ();
-    virtual uint16_t    readPowerSupply     ();
+    virtual long        readPowerSupply     ();
     virtual bool        readDHT11           (int16_t * humidity, int16_t * temperature);
     
 public:
