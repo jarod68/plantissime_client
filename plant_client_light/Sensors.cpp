@@ -130,11 +130,11 @@ String Sensors::capture              ()
     
     long powerSupply = readPowerSupply();
 
-    String	json = String("{\"nodeID\":");
+    String	json = String("{\"nodeID\":\"");
     json.concat(_nodeIdentifier);
-    json.concat(",\"serial\":");
+    json.concat("\",\"serial\":\"");
     json.concat(_serialNumber);
-    json.concat(",\"lum\":");
+    json.concat("\",\"lum\":");
     json.concat(stringLuminosity);
     json.concat(",\"hum\":");
     json.concat(humidity);
