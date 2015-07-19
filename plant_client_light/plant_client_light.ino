@@ -40,7 +40,7 @@
 #include "Sensors.h"
 #include "XBeeLink.h"
 
-#define SENDING_PERIOD_S 60
+#define SENDING_PERIOD_S (10 * 60) // 10 minutes
 
 XBeeLink    * xbee          = NULL;
 Sensors     * sensors       = NULL;
@@ -101,6 +101,18 @@ void deepSleep()
     sleep_disable();                                 // prevent further sleeps
 }
 
+void sendData()
+{
+	ledOn();
+	digitalWrite(XBEE_SLEEP, LOW);
+	xbee->printLineLF(sensors->capture());
+	digitalWrite(XBEE_SLEEP, HIGH);
+	sleepSecondElapsed=0;   // In case of interupt routine is called during LED ON
+	delay(1000);
+	ledOffAndBlink();
+
+}
+
 void setup()
 {
     ledOn();
@@ -125,9 +137,10 @@ void setup()
                           );
     
     xbee->configureSleepOnD7();
-    
     setupSleep();
     ledOff();
+	
+	sendData();
 }
 
 void loop()
@@ -135,13 +148,9 @@ void loop()
     deepSleep();
 
     if(sleepSecondElapsed>SENDING_PERIOD_S){
-        ledOn();
-        digitalWrite(XBEE_SLEEP, LOW);
-        xbee->printLineLF(sensors->capture());
-        digitalWrite(XBEE_SLEEP, HIGH);
-        sleepSecondElapsed=0;   // In case of interupt routine is called during LED ON
-        delay(1000);
-        ledOffAndBlink();
-        sleepSecondElapsed=1;   // Due to LED 1 second ON
+		
+		sendData();
+		
+		sleepSecondElapsed=1;   // Due to LED 1 second ON
     }
 }
